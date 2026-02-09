@@ -47,23 +47,69 @@ fun main(){
 //            println("Pilihan tidak tepat, pendaftaran batal")
 //        }
 //    }
-    print("Masukkan Judul: ")
-    val bookTitle = scanner.nextLine()
+//    print("Masukkan Judul: ")
+//    val bookTitle = scanner.nextLine()
+//
+//    print("Masukkan Peminjam: ")
+//    val borrower = scanner.nextLine()
+//
+//    print("Masukkan Lama Pinjam (hari): ")
+//    var loanDuration = scanner.nextInt()
+//
+//    if (loanDuration < 0){
+//        loanDuration = 1
+//    }
+//
+//    val loan1 = Loan(bookTitle, borrower, loanDuration)
+//    println("\n=== Detail Peminjaman ===")
+//    println("Judul Buku   : ${loan1.bookTitle}")
+//    println("Peminjam    : ${loan1.borrower}")
+//    println("Lama Pinjam : ${loan1.loanDuration} hari")
+//    println("Total Denda : Rp ${loan1.calculateFine()}")
 
-    print("Masukkan Peminjam: ")
-    val borrower = scanner.nextLine()
+    print("Masukkan Nama Hero: ")
+    val name = scanner.nextLine()
 
-    print("Masukkan Lama Pinjam (hari): ")
-    var loanDuration = scanner.nextInt()
+    print("Masukkan Base Damage: ")
+    val baseDamage = scanner.nextInt()
 
-    if (loanDuration < 0){
-        loanDuration = 1
+    val Hero1 = Hero(name, baseDamage)
+    var enemyHp = 100
+
+    while(Hero1.isAlive() && enemyHp > 0){
+        println("\n=== MENU ===")
+        println("1. Serang")
+        println("2. Kabur")
+        print("Pilih aksi: ")
+
+        val choice = scanner.nextInt()
+        when (choice) {
+            1 -> {
+                enemyHp -= Hero1.baseDamage
+                if (enemyHp < 0) enemyHp = 0
+                println("${Hero1.name} menyerang musuh!")
+                println("HP Musuh sekarang: $enemyHp")
+
+                if(enemyHp > 0){
+                    val enemyDamage = (10..20).random()
+                    println("Musuh membalas dengan damage $enemyDamage!")
+                    Hero1.takeDamage(enemyDamage)
+                    println("HP ${Hero1.name} sekarang: ${Hero1.hp}")
+                }
+            }
+            2 -> {
+                println("${Hero1.name} kabur dari pertarungan!")
+                break
+            }
+            else -> {
+                println("Pilihan tidak valid!")
+            }
+        }
     }
-
-    val loan1 = Loan(bookTitle, borrower, loanDuration)
-    println("\n=== Detail Peminjaman ===")
-    println("Judul Buku   : ${loan1.bookTitle}")
-    println("Peminjam    : ${loan1.borrower}")
-    println("Lama Pinjam : ${loan1.loanDuration} hari")
-    println("Total Denda : Rp ${loan1.calculateFine()}")
+    println("\n=== HASIL PERTARUNGAN ===")
+    when {
+        Hero1.isAlive() && enemyHp <= 0 -> println("${Hero1.name} MENANG!")
+        !Hero1.isAlive() && enemyHp > 0 -> println("Musuh MENANG!")
+        else -> println("Pertarungan berakhir tanpa pemenang.")
+    }
 }
