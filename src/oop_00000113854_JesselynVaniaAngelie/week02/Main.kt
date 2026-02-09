@@ -23,8 +23,12 @@ fun main(){
         print("Masukkan Jurusan: ")
         val major = scanner.nextLine()
 
+        print("Masukkan GPA: ")
+        val gpa = scanner.nextDouble()
+
         // Instansiasi Objek karena data sudah aman
-        val s1 = Student(name, nim)
+        val s1 = Student(name, nim, major, gpa)
+        println("${s1.name}, ${s1.nim}, ${s1.major}, ${s1.gpa}")
         println("Status: Pendaftaran Selesai.")
     }
 }

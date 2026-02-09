@@ -1,6 +1,6 @@
 package oop_00000113854_JesselynVaniaAngelie.week02
 
-class Student (val name: String, val nim: String, var major: String){
+class Student (val name: String, val nim: String, var major: String, var gpa: Double = 0.0){
     init{
         //Validasi Sederhana: Cek panjang NIM
         if (nim.length != 5) {
@@ -12,7 +12,7 @@ class Student (val name: String, val nim: String, var major: String){
     }
     // Secondary Constructor
     // Wajib memanggil Primary Constructor menggunakan 'this()'
-    constructor(name: String, nim: String) : this(name, nim, "Non-Matriculated"){
+    constructor(name: String, nim: String) : this(name, nim, "Non-Matriculated", 0.0){
         println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
     }
 }
