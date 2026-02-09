@@ -24,7 +24,7 @@ fun main(){
         val major = scanner.nextLine()
 
         // Instansiasi Objek karena data sudah aman
-        val s1 = Student(name, nim, major)
+        val s1 = Student(name, nim)
         println("Status: Pendaftaran Selesai.")
     }
 }
