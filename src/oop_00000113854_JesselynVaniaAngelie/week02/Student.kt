@@ -12,7 +12,7 @@ class Student (val name: String, val nim: String, var major: String, var gpa: Do
     }
     // Secondary Constructor
     // Wajib memanggil Primary Constructor menggunakan 'this()'
-    constructor(name: String, nim: String) : this(name, nim, "Non-Matriculated", 0.0){
+    constructor(name: String, nim: String, gpa: Double) : this(name, nim, "Non-Matriculated", gpa){
         println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
     }
 }
