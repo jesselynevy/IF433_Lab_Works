@@ -44,6 +44,20 @@ fun main() {
     for(method in metodePembayaran) {
         println("Memproses pembayaran dengan ${method.accountName} (${method::class.simpleName})")
         method.processPayment(75000.0)
+
+        // Smart Casting Challenge
+        when (method) {
+            is EWallet -> {
+                println("Top up otomatis Rp 50.000")
+                method.topUp(500000.0)
+
+                println("Coba pembayaran lagi...")
+                method.processPayment(75000.0)
+            }
+            is CreditCard -> {
+                println("Menggunakan Credit Card, tidak perlu top up.")
+            }
+        }
         println()
     }
 
