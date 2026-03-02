@@ -28,4 +28,10 @@ fun main() {
         }
         println("------------------------------------------------------")
     }
+
+    // Task 1
+    val mathHelper = MathHelper()
+    println("Luas Persegi (sisi = 4): ${mathHelper.hitungLuas(4)}")
+    println("Luas Persegi Panjang (6 x 7): ${mathHelper.hitungLuas(6, 7)}")
+    println("Luas Lingkaran (r = 5.0): ${mathHelper.hitungLuas(5.0)}")
 }
