@@ -23,4 +23,17 @@ fun main(){
     val livingRoomLamp = SmartLamp("L01", "Ruang Tamu")
     val kitchenSpeaker = SmartSpeaker("S01", "Google Nest Dapur")
     val garageCctv = SmartCCTV("C01", "Ezviz Garasi")
+
+    val hub = SmartHomeHub()
+
+    hub.addDevice(livingRoomLamp)
+    hub.addDevice(kitchenSpeaker)
+    hub.addDevice(garageCctv)
+
+    println("\n=== Mengaktifkan Security Mode ===")
+    hub.activateSecurityMode()
+
+    println()
+    println("=== Mematikan Semua Perangkat Switchable ===")
+    hub.turnOffAllSwitches()
 }
