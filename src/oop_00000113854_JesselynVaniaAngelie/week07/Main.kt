@@ -14,4 +14,10 @@ fun main(){
     val reg2 = RegularUser("Jesselyn", 28)
     println(reg1) // Akan mencetak memori hash
     println("Sama? ${reg1 == reg2}")
+
+    println("\n=== TEST DATA CLASS ===")
+    val data1 = DataUser("Jesselyn", 28)
+    val data2 = DataUser("Jesselyn", 28)
+    println(data1) // Otomatis readable format
+    println("Sama? ${data1 == data2}")
 }
