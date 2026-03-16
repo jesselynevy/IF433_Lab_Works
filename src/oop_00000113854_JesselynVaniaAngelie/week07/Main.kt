@@ -41,7 +41,16 @@ fun main(){
     // Task
     GameManager.startGame()
     GameManager.startGame()
-    println("Drop Chance: ${ItemRarity.LEGENDARY.dropChance}%")
+
+    println("\nDrop Chance: ${ItemRarity.LEGENDARY.dropChance}%")
     val myStarterSword = Weapon.forgeStarterSword()
     println("Senjata Awal: ${myStarterSword.item.name} | Damage: ${myStarterSword.item.damage} | Rarity: ${myStarterSword.item.rarity} | Durability: ${myStarterSword.durability}")
+
+    val myUpgradedItem = myStarterSword.item.copy(damage = 25)
+    println("\n⚒️ Upgrade di Blacksmith! Senjata baru: ${myUpgradedItem.name} | Damage: ${myUpgradedItem.damage} | Rarity: ${myUpgradedItem.rarity}")
+
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Akainu dan Big Mom"))
+    processEvent(BattleState.LootDropped(myUpgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
