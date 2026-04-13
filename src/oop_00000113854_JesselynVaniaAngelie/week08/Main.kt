@@ -1,5 +1,7 @@
 package oop_00000113854_JesselynVaniaAngelie.week08
 
+import org.jetbrains.annotations.Nullable
+
 fun main() {
     println("=== TEST SAFE CALLS & ELVIS ===")
     val emptyOrder = Order(null, null)
@@ -42,6 +44,14 @@ fun main() {
     // Coba cast ke String. Jika gagal (null), gnti dengan "Unknown String"
     val safeString = someObject as? String ?: "Unknown String"
     println("Hasil cast + fallback: $safeString")
-
     println("Test safe casting success")
+
+    println("\n=== TEST THE RED BUTTON (!!) ===")
+    val toxicData: String? = null
+    try{
+        // DANGEROUS: Memaksa compiler percaya data ini tidak null
+        val length = toxicData!!.length
+    } catch (e: NullPointerException) {
+        println("CRASH (NPE)! Jangan gunakan !! secara sembarangan.")
+    }
 }
