@@ -14,6 +14,14 @@ fun main(){
             val parsedData: Product? = parser.parseProduct(raw)
             parsedData?.let{
                 product -> parser.checkout(product)
+                when(product){
+                    is Product.Clothing -> {
+                        println("Clothing Product ID: ${product.id}, ${product.name}(Size ${product.size})")
+                    }
+                    is Product.Electronic -> {
+                        println("Electronic Product ID: ${product.id}, ${product.name}(Warranty ${product.warrantyMonths})")
+                    }
+                }
             }
 
         } catch(e: IllegalArgumentException){
