@@ -15,6 +15,6 @@ fun runMockUnitTest() {
     val initial = testUser!!.name.substring(0, 1)
 
     // check() adalah fungsi bawaan Kotlin untuk assertion
-    check(initial == "T"){"Test Failes! Initial is wrong."}
+    check(initial == "T"){"Test Failed! Initial is wrong."}
     println("Test Passed: Initial is T")
 }
