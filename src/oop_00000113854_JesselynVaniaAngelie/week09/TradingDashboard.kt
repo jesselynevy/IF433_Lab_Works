@@ -45,4 +45,6 @@ fun main(){
             status = "CLOSED"
         )
     )
+
+    val closedTrades = tradeHistory.filter{it.status == "CLOSED"}
 }
