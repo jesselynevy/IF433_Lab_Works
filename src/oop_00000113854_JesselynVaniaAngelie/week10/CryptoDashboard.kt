@@ -10,4 +10,9 @@ fun main(){
     val response = ApiResponse("200 OK", coinRepo.getAll())
     println("Status: ${response.status}")
     response.data.forEach { println("Name: ${it.name}, Balance: ${it.balance}") }
+
+    val txRepo = WalletRepository<Transaction>()
+    txRepo.add(Transaction("tx-001", 167.0))
+    txRepo.add(Transaction("tx-002", -37.0))
+    txRepo.add(Transaction("tx-003", 180.0))
 }
