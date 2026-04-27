@@ -15,4 +15,12 @@ fun main(){
     txRepo.add(Transaction("tx-001", 167.0))
     txRepo.add(Transaction("tx-002", -37.0))
     txRepo.add(Transaction("tx-003", 180.0))
+
+    println(txRepo.getAll())
+
+    println("\n=== findByName 'btc' ===")
+    coinRepo.findByName("BTC").forEach { println(it) }
+
+    println("\n=== findByName 'eth' ===")
+    coinRepo.findByName("ETH").forEach { println(it) }
 }
