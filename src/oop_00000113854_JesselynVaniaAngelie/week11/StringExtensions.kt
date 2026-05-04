@@ -13,4 +13,6 @@ fun String.repeatTimes(n: Int): String{
 fun String?.isNullOrEmptyCustom(): Boolean{
     // 'this' bisa bernilai null, jadi harus ditangani
     return this == null || this.isEmpty()
+    // this == null The object reference itself doesn't exist
+    // this.isEmpty() The object exists but has no content (e.g. "", [], {})
 }
