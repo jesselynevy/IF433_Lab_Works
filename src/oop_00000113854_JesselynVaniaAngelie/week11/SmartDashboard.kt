@@ -52,4 +52,9 @@ fun main(){
             println("${it.name} - ${it.category} - ${it.isOnline} - ${it.powerLoad}")
         }
     }
+
+    val totalPower = homeDevices.run{
+        sumOf{it.powerLoad}
+    }
+    println("Total power: $totalPower")
 }
