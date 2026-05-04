@@ -44,4 +44,12 @@ fun main(){
         it.diagnose()
         println(it)
     }
+
+    with(homeDevices){
+        println(this)
+        println("Devices found: ${this.size}")
+        homeDevices.forEach{
+            println("${it.name} - ${it.category} - ${it.isOnline} - ${it.powerLoad}")
+        }
+    }
 }
