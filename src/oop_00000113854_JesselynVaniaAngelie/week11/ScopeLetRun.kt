@@ -10,4 +10,11 @@ fun main(){
         it.length
     }
     println("Panjang nama: $length")
+
+    println("=== TEST RUN FUNCTION ===")
+    val result = "Kotlin".run{
+        println("Memproses kata: ${this}") // 'this' bisa fihilangkan (implicit)
+        this.length * 2
+    }
+    println("Hasil kalkulasi run: $result")
 }
