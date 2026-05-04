@@ -42,7 +42,7 @@ fun main(){
 
     searchResult?.let{
         it.diagnose()
-        println(it)
+        println(it.diagnose())
     }
 
     with(homeDevices){
@@ -57,4 +57,8 @@ fun main(){
         sumOf{it.powerLoad}
     }
     println("Total power: $totalPower")
+
+    homeDevices.forEach {
+        println(it.diagnose())
+    }
 }
