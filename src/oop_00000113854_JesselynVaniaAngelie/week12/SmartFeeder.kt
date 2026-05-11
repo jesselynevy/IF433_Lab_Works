@@ -29,4 +29,7 @@ fun main(){
         println("Siklus pengecekan dispenser pagi selseai.")
     }
 
+    runCatching {
+        dispenseKibble(30, 1000, false)
+    }
 }
