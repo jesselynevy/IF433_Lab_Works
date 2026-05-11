@@ -1,3 +1,10 @@
 package oop_00000113854_JesselynVaniaAngelie.week12
 
-sealed class FeederException(msg: String) : Exception(msg)
+sealed class FeederException(msg: String) : Exception(msg){
+    class FoodEmptyException(requested: Int, available: Int): FeederException(
+        "Kibble tidak cukup! Diminta $requested gr, sisa $available gr"
+    )
+    class DispneserJamException: FeederException(
+        "Wadah dispenser tersangkut/macet!"
+    )
+}
