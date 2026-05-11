@@ -29,7 +29,7 @@ fun main(){
         println("Siklus pengecekan dispenser pagi selseai.")
     }
 
-    runCatching {
+    val result: Result<Int> = runCatching {
         dispenseKibble(30, 1000, false)
     }.onSuccess {
         newStock -> currentKibbleStock = newStock
@@ -38,4 +38,6 @@ fun main(){
         error -> println("Peringatan ke Pemilik: ${error.message}")
         println("Berikan chicken jerky secara manual")
     }
+
+    println("Final Stok: $currentKibbleStock")
 }
