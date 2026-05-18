@@ -21,7 +21,7 @@ fun fromCsvTrade(line: String): TradeRecord?{
             pnl = parts[4].toDouble()
         )
     } catch(e: Exception){
-        println("Warning: Baris cacat, dilewati -> \"$line\"")
+        println("(Log) Data korup diabaikan: $line")
         null
     }
 }
