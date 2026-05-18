@@ -52,3 +52,13 @@ fun loadTrades(path: String): List<TradeRecord>{
     }
 }
 
+fun main(){
+    val trades = listOf(
+        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long",  margin = 500.0,  pnl =  75.5),
+        TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 300.0,  pnl = -42.0),
+        TradeRecord(id = 3, symbol = "SOLUSDT", type = "Long",  margin = 150.0,  pnl =  18.3)
+    )
+    saveTrades(trades, "crypto_trades.csv")
+
+}
+
