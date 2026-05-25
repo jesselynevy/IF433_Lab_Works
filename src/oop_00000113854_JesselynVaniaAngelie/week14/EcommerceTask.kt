@@ -2,17 +2,29 @@ package oop_00000113854_JesselynVaniaAngelie.week14
 import java.io.File
 
 interface OrderRepository{
-    fun saveOrder(itemName: String, finalPrice: Double, customerType: String)
+    fun saveOrder(fileName: File, itemName: String, finalPrice: Double)
 }
 
 interface NotificationService {
     fun sendNotification(itemName: String)
 }
 
+interface PricingStrategy{
+    fun calculate(price: Double): Double
+}
+
+class VipPricing : PricingStrategy{
+    override fun calculate(price: Double): Double = price * 0.90
+}
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double) = price  // no discount
+}
+
 class CsvOrderRepository(): OrderRepository{
-    override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
-        File("orders.csv").bufferedWriter().use{ writer ->
-            writer.append("$itemName, $finalPrice, $customerType\n")
+    override fun saveOrder(fileName: File, itemName: String, finalPrice: Double) {
+        fileName.bufferedWriter().use{ writer ->
+            writer.append("$itemName, $finalPrice\n")
         }
     }
 }
@@ -27,9 +39,11 @@ class SafeOrderProcessor(
     val repo: OrderRepository,
     val notifier: NotificationService
 ){
-    fun processOrder(itemName: String, finalPrice: Double, customerType: String){
+    private val file = File("orders.csv")
+    fun processOrder(strategy: PricingStrategy, itemName: String, basePrice: Double){
+        val finalPrice = strategy.calculate(basePrice)
         println("Memproses pesanan $itemName seharga $finalPrice")
-        repo.saveOrder(itemName, finalPrice, customerType)
+        repo.saveOrder(file, itemName, finalPrice)
         notifier.sendNotification(itemName)
     }
 }
